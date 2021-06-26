@@ -19,11 +19,12 @@ const HomeScreen = () => {
         <Text style = {styles.PodcastTitle}>Podcasts</Text>
         <View style={styles.podcasts}>
           
-          
+        <TouchableOpacity>  
         <PodcastCircleComponent
-            image='https://randomuser.me/api/portraits/men/44.jpg'
+            image='https://randomuser.me/api/portraits/men/44.jpg' 
             title='User One'
           />
+         </TouchableOpacity> 
           <PodcastCircleComponent
             image='https://randomuser.me/api/portraits/men/80.jpg'
             title='User Two'
