@@ -2,7 +2,7 @@
 
 import React from "react";
 import { StyleSheet, Text, View,Image } from "react-native";
-import PodcastCircleComponent from "../Components/PodcastCircleComponent";
+import PodcastCircleComponent from "../components/PodcastCircleComponent";
 import { WindowHeight, WindowWidth } from "../Dimensions";
 
 const AccountScreen = ({ posts, followers, following, username,postimage }) => {

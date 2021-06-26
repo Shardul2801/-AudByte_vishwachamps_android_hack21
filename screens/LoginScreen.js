@@ -5,17 +5,28 @@ import { Keyboard } from "react-native";
 import { KeyboardAvoidingView } from "react-native";
 import { StyleSheet, Text, View,TouchableOpacity,TouchableWithoutFeedback,Image } from "react-native";
 import {Input } from "react-native-elements";
+import { auth,db } from "../firebase";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const signIn = () => {
-  //   auth
-  //     .signInWithEmailAndPassword(email, password)
-  //     .catch((error) => alert(error));
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      console.log(authUser);
+      if (authUser) {
+        navigation.replace("BottomTabNav",screen = "Home");
+      }
+    });
+    return unsubscribe;
+  }, []);
 
-  // };
+  const signIn = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .catch((error) => alert(error));
+  };
+
 
   return (
       <TouchableWithoutFeedback onPress = {Keyboard.dismiss}>
@@ -50,16 +61,16 @@ const LoginScreen = ({ navigation }) => {
           type='password'
           value={password}
           onChangeText={(text) => setPassword(text)}
-          //  onSubmitEditing={signIn}
+           onSubmitEditing={signIn}
         />
       </View>
         <View  style = {styles.buttons}>
-        <TouchableOpacity >
+        <TouchableOpacity>
             <Text style = {styles.buttonTextLogin}>
             Login
             </Text>
         </TouchableOpacity>
-        <TouchableOpacity >
+        <TouchableOpacity onPress={() => navigation.navigate("Register")} >
             <Text style = {styles.buttonTextRegister}>
             Register
             </Text>

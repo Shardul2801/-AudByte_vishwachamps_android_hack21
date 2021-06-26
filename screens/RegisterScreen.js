@@ -7,12 +7,14 @@ import { StatusBar } from "expo-status-bar";
 import { Text,Image} from "react-native-elements";
 import { Button, Input } from "react-native-elements";
 import { WindowHeight, WindowWidth } from "../Dimensions";
+import { auth, db } from "../firebase";
+
 
 const RegisterScreen = ({ navigation }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("")
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -20,19 +22,28 @@ const RegisterScreen = ({ navigation }) => {
     });
   }, [navigation]);
 
-  //const register = () => {
-  // auth
-  //   .createUserWithEmailAndPassword(email,password)
-  //   .then((authUser) => {
-  //     authUser.user.updateProfile({
-  //       displayName: name ,
-  //       photoURL:
-  //        imageUrl ||
-  //        "https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg",
-  //     });
-  //   })
-  //   .catch((error) => alert(error.message));
-  //};
+  const regiserFunction = () => {
+    auth.createUserWithEmailAndPassword(email,password)
+    .then((authUser) => {
+        const uid = authUser.user.uid
+        const data = {
+            id : uid,
+            email,
+            name,
+        };
+        db.collection("users")
+        .doc(uid)
+        .set(data)
+      authUser.user.updateProfile({
+        displayName : name,
+        // photoURL : imageurl || "https://image.freepik.com/free-vector/default-avatar-profile-icon-gray-placeholder-man-woman_146706-349.jpg",
+        
+      })
+    })
+
+    .catch((erorr) => alert(erorr.message)) 
+  };
+
 
   return (
     <KeyboardAvoidingView behavior='padding' style={styles.container}>
@@ -84,8 +95,9 @@ const RegisterScreen = ({ navigation }) => {
           style={{ color: "white" }}
           type='password'
           secureTextEntry
-          value={password}
-          onChangeText={(text) => setPassword(text)}
+          value={confirmPassword}
+          onChangeText={(text) => setConfirmPassword(text)}
+          onSubmitEditing={regiserFunction}
         />
         
       </View>
@@ -93,8 +105,17 @@ const RegisterScreen = ({ navigation }) => {
         containerStyle={styles.button}
         type='outline'
         raised
-        // onPress={register}
+        secureTextEntry
+        onPress={regiserFunction}
         title='Register'
+      />
+      <Button
+        containerStyle={styles.button}
+        type='outline'
+        raised
+        secureTextEntry
+        onPress={() => {navigation.navigate("Login")}}
+        title='Login'
       />
     </KeyboardAvoidingView>
   );

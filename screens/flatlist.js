@@ -1,5 +1,6 @@
 /** @format */
 
+import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import {
   StyleSheet,
@@ -10,8 +11,11 @@ import {
   Image,
   FlatList,
   ImageBackground,
+  TouchableOpacity,
 } from "react-native";
+import WebView from "react-native-webview";
 import { WindowHeight, WindowWidth } from "../Dimensions";
+
 
 const Listitem = ({ item }) => {
   return (
@@ -21,6 +25,7 @@ const Listitem = ({ item }) => {
         style={styles.itemPhoto}
         resizeMode='cover'>
         <Text style={styles.itemText}>{item.text}</Text>
+      
       </ImageBackground>
     </View>
   );
@@ -56,6 +61,8 @@ const FlatlistComponent = () => {
   );
 };
 
+
+
 const SECTIONS = [
   {
     title: "Happening Now",
@@ -65,22 +72,25 @@ const SECTIONS = [
         key: "1",
         text: "Topic One",
         uri: "https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        
       },
       {
         key: "2",
         text: "Topic Two",
         uri: "https://images.pexels.com/photos/7538137/pexels-photo-7538137.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        
       },
       {
         key: "3",
         text: "Topic Three",
         uri: "https://images.pexels.com/photos/5460885/pexels-photo-5460885.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        
       },
     ],
   },
 ];
 
-export default FlatlistComponent;
+export default FlatlistComponent ;
 
 const styles = StyleSheet.create({
   container: {
@@ -101,7 +111,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     fontSize: 25,
-    paddingLeft : WindowWidth*0.26,
-    paddingTop : WindowHeight*0.17
+    paddingLeft: WindowWidth * 0.26,
+    paddingTop: WindowHeight * 0.17,
   },
 });

@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView,TouchableOpacity } from "react-native";
 import BookReadingComponent from "../components/BookReadingComponent";
 import HappeningNowComponent from "../components/HappeningNowComponent";
 import PodcastCircleComponent from "../components/PodcastCircleComponent";
@@ -18,49 +18,53 @@ const HomeScreen = () => {
         </View>
         <Text style = {styles.PodcastTitle}>Podcasts</Text>
         <View style={styles.podcasts}>
-          <PodcastCircleComponent
-            image='https://randomuser.me/api/portraits/men/62.jpg'
-            title='Atharva Panegai'
+          
+          
+        <PodcastCircleComponent
+            image='https://randomuser.me/api/portraits/men/44.jpg'
+            title='User One'
           />
           <PodcastCircleComponent
-            image='https://randomuser.me/api/portraits/men/62.jpg'
-            title='Atharva Panegai'
+            image='https://randomuser.me/api/portraits/men/80.jpg'
+            title='User Two'
           />
           <PodcastCircleComponent
-            image='https://randomuser.me/api/portraits/men/62.jpg'
-            title='Atharva Panegai'
+            image='https://randomuser.me/api/portraits/men/51.jpg'
+            title='User Three'
+          />
+          
+        </View>
+        <View style={styles.podcasts}>
+          <PodcastCircleComponent
+            image='https://randomuser.me/api/portraits/women/53.jpg'
+            title='User four'
+          />
+          <PodcastCircleComponent
+            image='https://randomuser.me/api/portraits/women/12.jpg'
+            title='User Five'
+          />
+          <PodcastCircleComponent
+            image='https://randomuser.me/api/portraits/women/87.jpg'
+            title='User six'
           />
         </View>
         <View style={styles.podcasts}>
           <PodcastCircleComponent
-            image='https://randomuser.me/api/portraits/men/62.jpg'
-            title='Atharva Panegai'
+            image='https://randomuser.me/api/portraits/men/79.jpg'
+            title='User Seven'
           />
           <PodcastCircleComponent
-            image='https://randomuser.me/api/portraits/men/62.jpg'
-            title='Atharva Panegai'
+            image='https://randomuser.me/api/portraits/men/74.jpg'
+            title='User eight'
           />
           <PodcastCircleComponent
-            image='https://randomuser.me/api/portraits/men/62.jpg'
-            title='Atharva Panegai'
-          />
-        </View>
-        <View style={styles.podcasts}>
-          <PodcastCircleComponent
-            image='https://randomuser.me/api/portraits/men/62.jpg'
-            title='Atharva Panegai'
-          />
-          <PodcastCircleComponent
-            image='https://randomuser.me/api/portraits/men/62.jpg'
-            title='Atharva Panegai'
-          />
-          <PodcastCircleComponent
-            image='https://randomuser.me/api/portraits/men/62.jpg'
-            title='Atharva Panegai'
+            image='https://randomuser.me/api/portraits/men/29.jpg'
+            title='User nine'
           />
         </View>
         <Text style = {styles.PodcastTitle}>Book Reading</Text>
         <View style={styles.bookReading}>
+          
           <BookReadingComponent
             image='https://randomuser.me/api/portraits/men/90.jpg'
             title='Harry Potter'
@@ -70,6 +74,7 @@ const HomeScreen = () => {
             image='https://randomuser.me/api/portraits/men/90.jpg'
             title='Harry Potter'
           />
+          
         </View>
         <View style={styles.bookReading}>
           <BookReadingComponent
