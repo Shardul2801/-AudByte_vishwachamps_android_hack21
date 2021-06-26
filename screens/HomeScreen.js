@@ -6,6 +6,7 @@ import BookReadingComponent from "../components/BookReadingComponent";
 import HappeningNowComponent from "../components/HappeningNowComponent";
 import PodcastCircleComponent from "../components/PodcastCircleComponent";
 import { WindowHeight, WindowWidth } from "../Dimensions";
+import FlatlistComponent from "./flatlist";
 
 const HomeScreen = () => {
   return (
@@ -13,11 +14,7 @@ const HomeScreen = () => {
       <View style={styles.mainView}>
         <Text style = {styles.ComponentTitle}>Happening Now</Text>
         <View style={styles.happeningNow}>
-          <HappeningNowComponent
-            image='https://images.pexels.com/photos/2847648/pexels-photo-2847648.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'
-            title='This is Topic'
-            userName='Audbyte Admin'
-          />
+        <FlatlistComponent />
         </View>
         <Text style = {styles.PodcastTitle}>Podcasts</Text>
         <View style={styles.podcasts}>
