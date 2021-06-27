@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View,Image } from 'react-native'
 
-const PodcastCircleComponent = ({image,title}) => {
+const PodcastCircleComponent = ({image,title,accountImage}) => {
     return (
         <View style = {styles.container}>
             <Image 

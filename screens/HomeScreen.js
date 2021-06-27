@@ -8,7 +8,7 @@ import PodcastCircleComponent from "../components/PodcastCircleComponent";
 import { WindowHeight, WindowWidth } from "../Dimensions";
 import FlatlistComponent from "./flatlist";
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <ScrollView>
       <View style={styles.mainView}>
@@ -19,7 +19,7 @@ const HomeScreen = () => {
         <Text style = {styles.PodcastTitle}>Podcasts</Text>
         <View style={styles.podcasts}>
           
-        <TouchableOpacity>  
+        <TouchableOpacity onPress={()=>navigation.navigate("Podcasts")}>  
         <PodcastCircleComponent
             image='https://randomuser.me/api/portraits/men/44.jpg' 
             title='User One'
@@ -67,24 +67,24 @@ const HomeScreen = () => {
         <View style={styles.bookReading}>
           
           <BookReadingComponent
-            image='https://randomuser.me/api/portraits/men/90.jpg'
+            image='https://static.wikia.nocookie.net/harrypotter/images/9/97/Harry_Potter.jpg/revision/latest?cb=20140603201724'
             title='Harry Potter'
           />
 
           <BookReadingComponent
-            image='https://randomuser.me/api/portraits/men/90.jpg'
+            image='https://static.wikia.nocookie.net/harrypotter/images/9/97/Harry_Potter.jpg/revision/latest?cb=20140603201724'
             title='Harry Potter'
           />
           
         </View>
         <View style={styles.bookReading}>
           <BookReadingComponent
-            image='https://randomuser.me/api/portraits/men/90.jpg'
+            image='https://static.wikia.nocookie.net/harrypotter/images/9/97/Harry_Potter.jpg/revision/latest?cb=20140603201724'
             title='Harry Potter'
           />
 
           <BookReadingComponent
-            image='https://randomuser.me/api/portraits/men/90.jpg'
+            image='https://static.wikia.nocookie.net/harrypotter/images/9/97/Harry_Potter.jpg/revision/latest?cb=20140603201724'
             title='Harry Potter'
           />
         </View>

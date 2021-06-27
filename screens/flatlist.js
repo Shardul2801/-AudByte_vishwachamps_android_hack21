@@ -13,7 +13,6 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
-import WebView from "react-native-webview";
 import { WindowHeight, WindowWidth } from "../Dimensions";
 
 

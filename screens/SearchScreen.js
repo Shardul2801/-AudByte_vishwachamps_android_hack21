@@ -16,7 +16,7 @@ const SearchScreen = () => {
   return (
     <View style={styles.container}>
       <Input
-         placeholderTextColor = "white"
+         placeholderTextColor = "gray"
       
         placeholder=' Search for artists,podcasts & more '
         leftIcon={{ type: "font-awesome", name: "search",color : "white",size : 30 }}
@@ -25,6 +25,8 @@ const SearchScreen = () => {
             borderColor : "white",
             paddingVertical : 17, 
             borderRadius:20,
+            color : "white",
+            paddingLeft : 20,
         }}
       />
     </View>
